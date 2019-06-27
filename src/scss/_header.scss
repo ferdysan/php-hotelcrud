@@ -1,0 +1,11 @@
+header{
+  width: 100vw;
+  height: $header_height;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid black;
+  .logo img{
+    height: $header_height;
+  }
+}

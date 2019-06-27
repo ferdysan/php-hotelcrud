@@ -16,22 +16,26 @@ if($connessione && $connessione->connect_error){
 
  ?>
 
+<?php
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="/css/app.css">
-  </head>
-  <body>
-<div class="container">
-  <table>
-    <tr>
-      <th>stanza N°</th>
-      <th>piano</th>
-      <th>Letti</th>
-    </tr>
+ include 'layout/head.php';
+
+ ?>
+
+
+    <div class="container">
+      <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Room Number</th>
+          <th scope="col">Floor</th>
+          <th scope="col">Beds</th>
+          <th scope="col">created at</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
 
     <?php
     $sql = "SELECT *, floor FROM stanze ";
@@ -44,18 +48,20 @@ if($connessione && $connessione->connect_error){
     // prendi una riga dei tuoi risultati e salvalo nella variabile row una riga per volta
     while($row = $result->fetch_assoc()) {?>
 
-        <tr>
-            <td><?php echo $row['room_number'] ?></td>
-            <td><?php echo $row['floor'] ?></td>
-            <td><?php echo $row['beds'] ?></td>
-        </tr>
+      <tr>
+          <td><?php echo $row['id'] ?></td>
+          <td><?php echo $row['room_number'] ?></td>
+          <td><?php echo $row['floor'] ?></td>
+          <td><?php echo $row['beds'] ?></td>
+          <td><?php echo $row['created_at'] ?></td>
+      </tr>
 
       <?php
        }
     } elseif ($result) {
-       echo "0 results";
+       echo "Non ci sono risultati";
     } else {
-      echo "query error";
+      echo "Si è verificato un errore";
     }
     $connessione->close();
 
@@ -63,11 +69,5 @@ if($connessione && $connessione->connect_error){
 
     </table>
     </div>
-
-
-
-<script src="public/js/app.js" charset="utf-8">
-
-</script>
   </body>
 </html>
