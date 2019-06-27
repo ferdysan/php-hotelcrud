@@ -25,6 +25,7 @@ if($connessione && $connessione->connect_error){
     <link rel="stylesheet" href="/css/app.css">
   </head>
   <body>
+<div class="container">
   <table>
     <tr>
       <th>stanza N°</th>
@@ -48,7 +49,6 @@ if($connessione && $connessione->connect_error){
             <td><?php echo $row['floor'] ?></td>
             <td><?php echo $row['beds'] ?></td>
         </tr>
-      </table>
 
       <?php
        }
@@ -60,6 +60,9 @@ if($connessione && $connessione->connect_error){
     $connessione->close();
 
      ?>
+
+    </table>
+    </div>
 
 
 
