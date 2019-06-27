@@ -22,6 +22,7 @@ if($connessione && $connessione->connect_error){
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="/css/app.css">
   </head>
   <body>
   <table>
@@ -30,7 +31,6 @@ if($connessione && $connessione->connect_error){
       <th>piano</th>
       <th>Letti</th>
     </tr>
-
 
     <?php
     $sql = "SELECT *, floor FROM stanze ";
@@ -63,6 +63,8 @@ if($connessione && $connessione->connect_error){
 
 
 
+<script src="public/js/app.js" charset="utf-8">
 
+</script>
   </body>
 </html>
