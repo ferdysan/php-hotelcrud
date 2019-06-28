@@ -53,7 +53,8 @@ if($connessione && $connessione->connect_error){
           <td><?php echo $row['floor'] ?></td>
           <td><?php echo $row['beds'] ?></td>
           <td><?php echo $row['created_at'] ?></td>
-          <td> <a href="show.php?id=<?php echo $row['id'] ?>">Visualizza</a> </td>
+          <td> <a href="show.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Visualizza</a> </td>
+          <td> <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Modifica</a> </td>
       </tr>
 
       <?php
