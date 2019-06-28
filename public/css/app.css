@@ -11100,3 +11100,17 @@ a.text-dark:focus {
   }
 }
 
+header {
+  width: 100vw;
+  height: 80px;
+  display: -webkit-box;
+  display: flex;
+  justify-content: space-around;
+  -webkit-box-align: center;
+          align-items: center;
+  border-bottom: 1px solid black;
+}
+
+header .logo img {
+  height: 80px;
+}

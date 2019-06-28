@@ -1,14 +1,12 @@
 <!-- effettuo la connessione al database -->
 
 <?php
+include 'db_config.php';
+include 'functions.php';
 
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "db_hotel";
+$connessione= connect_db($servername, $username, $password, $dbname);
 
-$connessione = new mysqli($servername, $username, $password, $dbname );
-
+// controllo se la connessione con il database è andata a buon fine
 if($connessione && $connessione->connect_error){
   echo ("Connection failed: " . $connessione->connect_error);
   exit();
@@ -19,6 +17,7 @@ if($connessione && $connessione->connect_error){
 <?php
 
  include 'layout/head.php';
+ include 'layout/header.php';
 
  ?>
 
@@ -54,6 +53,7 @@ if($connessione && $connessione->connect_error){
           <td><?php echo $row['floor'] ?></td>
           <td><?php echo $row['beds'] ?></td>
           <td><?php echo $row['created_at'] ?></td>
+          <td> <a href="show.php?id=<?php echo $row['id'] ?>">Visualizza</a> </td>
       </tr>
 
       <?php
