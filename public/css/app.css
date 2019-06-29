@@ -11114,3 +11114,16 @@ header {
 header .logo img {
   height: 80px;
 }
+
+.main .crea_stanza {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+          flex-direction: row-reverse;
+}
+
+.elimina_row {
+  display: inline-block;
+}
+

@@ -11,34 +11,28 @@ if($connessione && $connessione->connect_error){
   exit();
 }
 
- if(empty($_POST)){
-   echo ' si è verificato un errore';
-   exit();
- }
+if(empty($_POST)){
+  echo ' si è verificato un errore';
+  exit();
+}
 
- // vado a recuperarmi i dati passati dalla post
- $id =intval($_POST['id']);
- $room_number = intval($_POST['room_number']);
- $floor = intval($_POST['floor']);
- $beds = intval($_POST['beds']);
- $sql = "UPDATE `stanze` SET `floor` = $floor, `beds` = $beds, `updated_at` = NOW() WHERE `stanze`.`id` = $id;";
+$id_stanza = $_POST['id'];
 
+$sql = "DELETE FROM `stanze` WHERE `stanze`.`id` = $id_stanza";
 
- $result = $connessione->query($sql);
+$result = $connessione->query($sql);
 
-   include 'layout/head.php';
-   include 'layout/header.php';
-
+include 'layout/head.php';
+include 'layout/header.php';
  ?>
 
  <div class="container">
    <div class="row">
      <div class="col-12">
        <?php if ($result) {
-         echo "Modifica Effettuata con successo";
+         echo "La stanza è stata cancellata";
        }else{
          echo "Qualcosa non ha funzionato";
-         $connessione->close();
        } ?>
        <div class="back">
          <a href="index.php" class="btn btn-primary">Torna alla Home</a>

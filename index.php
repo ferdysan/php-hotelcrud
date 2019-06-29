@@ -21,8 +21,11 @@ if($connessione && $connessione->connect_error){
 
  ?>
 
-
     <div class="container">
+      <div class="col-12 main">
+        <div class="crea_stanza">
+           <a href="create.php" class="btn btn-primary">Inserisci Nuova stanza</a>
+        </div>
       <table class="table">
       <thead>
         <tr>
@@ -53,8 +56,13 @@ if($connessione && $connessione->connect_error){
           <td><?php echo $row['floor'] ?></td>
           <td><?php echo $row['beds'] ?></td>
           <td><?php echo $row['created_at'] ?></td>
-          <td> <a href="show.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Visualizza</a> </td>
-          <td> <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Modifica</a> </td>
+          <td> <a href="show.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Visualizza</a>
+          <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">Modifica</a>
+          <form class="elimina_row" action="delete.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+            <input type="submit" name="" value="Cancella" class="btn btn-danger">
+          </form>
+        </td>
       </tr>
 
       <?php
@@ -70,5 +78,6 @@ if($connessione && $connessione->connect_error){
 
     </table>
     </div>
+      </div>
   </body>
 </html>
